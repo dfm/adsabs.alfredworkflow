@@ -31,8 +31,7 @@ def parse_query_string(query):
     if len(years) == 1:
         q.append("year:{0}".format(years[0]))
     elif len(years) > 1:
-        q.append("year:[{0} TO {1}]".format(
-            min(tokens.years), max(years)))
+        q.append("year:[{0} TO {1}]".format(min(years), max(years)))
     q = " ".join(q)
     return q
 
