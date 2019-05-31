@@ -87,11 +87,7 @@
 				<key>escaping</key>
 				<integer>68</integer>
 				<key>script</key>
-				<string>if test -f "$HOME/.ads/python"; then
-    `cat $HOME/.ads/python` parse_query.py {query}
-	exit 0
-fi
-python parse_query.py {query}</string>
+				<string>$ADS_PYTHON parse_query.py {query}</string>
 				<key>scriptargtype</key>
 				<integer>0</integer>
 				<key>scriptfile</key>
@@ -151,6 +147,8 @@ python parse_query.py {query}</string>
 				<false/>
 				<key>alfredfiltersresultsmatchmode</key>
 				<integer>0</integer>
+				<key>argumenttreatemptyqueryasnil</key>
+				<false/>
 				<key>argumenttrimmode</key>
 				<integer>0</integer>
 				<key>argumenttype</key>
@@ -170,11 +168,7 @@ python parse_query.py {query}</string>
 				<key>runningsubtext</key>
 				<string>Searching for papers...</string>
 				<key>script</key>
-				<string>if test -f "$HOME/.ads/python"; then
-    `cat $HOME/.ads/python` run_search.py {query}
-	exit 0
-fi
-python run_search.py {query}</string>
+				<string>$ADS_PYTHON run_search.py {query}</string>
 				<key>scriptargtype</key>
 				<integer>0</integer>
 				<key>scriptfile</key>
@@ -193,11 +187,11 @@ python run_search.py {query}</string>
 			<key>uid</key>
 			<string>54F6D1CC-61CC-4CD1-8853-8E956B8DB7C3</string>
 			<key>version</key>
-			<integer>2</integer>
+			<integer>3</integer>
 		</dict>
 	</array>
 	<key>readme</key>
-	<string></string>
+	<string>Search for papers using SAO/NASA Astrophysics Data System</string>
 	<key>uidata</key>
 	<dict>
 		<key>11D5721D-E45C-4D45-82C8-2CC370002271</key>
@@ -236,6 +230,20 @@ python run_search.py {query}</string>
 			<integer>60</integer>
 		</dict>
 	</dict>
+	<key>variables</key>
+	<dict>
+		<key>ADS_DEV_KEY</key>
+		<string></string>
+		<key>ADS_PYTHON</key>
+		<string>/Users/dforeman/anaconda3/bin/python</string>
+	</dict>
+	<key>variablesdontexport</key>
+	<array>
+		<string>ADS_PYTHON</string>
+		<string>ADS_DEV_KEY</string>
+	</array>
+	<key>version</key>
+	<string>0.1.0</string>
 	<key>webaddress</key>
 	<string>https://github.com/dfm/adsabs.alfredworkflow</string>
 </dict>

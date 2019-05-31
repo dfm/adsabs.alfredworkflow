@@ -43,9 +43,14 @@ if __name__ == "__main__":
                      sub=("Or set you prefered python interpreter in the "
                           "~/.ads/python file"))
 
-    if not os.path.exists(os.path.expanduser("~/.ads/dev_key")):
+    key = os.environ.get("ADS_DEV_KEY", None)
+    if not len(key.strip()):
+        key = None
+        os.environ.pop("ADS_DEV_KEY")
+    exists = os.path.exists(os.path.expanduser("~/.ads/dev_key"))
+    if key is None and not exists:
         return_error(("Your ADS API key must be saved in the file "
-                      "~/.ads/dev_key"),
+                      "~/.ads/dev_key or set as an Alfred variable"),
                      "https://github.com/andycasey/ads")
 
     # Fail if we're over the rate limit
