@@ -43,6 +43,11 @@ if __name__ == "__main__":
                      sub=("Or set you prefered python interpreter in the "
                           "~/.ads/python file"))
 
+    if not os.path.exists(os.path.expanduser("~/.ads/dev_key")):
+        return_error(("Your ADS API key must be saved in the file "
+                      "~/.ads/dev_key"),
+                     "https://github.com/andycasey/ads")
+
     # Fail if we're over the rate limit
     ratelimit = get_ratelimit()
     if ratelimit is not None:
