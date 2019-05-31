@@ -18,19 +18,18 @@ click to import that into Alfred.
 You can also install the development version of the workflow by cloning this repository into
 the `~/Library/Application Support/Alfred/Alfred.alfredpreferences/workflows` directory.
 
+To get all the features out of this worflow, you should also install [Andy Casey's ads
+library](https://github.com/andycasey/ads). Then you can either put your API key in the
+`~/.ads/dev_key` file or set it using the `ADS_API_KEY` variable in the workflow interface.
+
+By default Alfred uses the system Python, but you can change that by putting the path to your
+favorite Python executable in the `ADS_PYTHON` variable.
+
 ## Usage
 
-To get started you can just open Alfred and type `ads ` to start searching. This will let you
-perform queries using the ADS website. If you want to perform queries within Alfred as well,
-you'll need to install [Andy Casey's ads library](https://github.com/andycasey/ads) and save
-your ADS API key in the `~/.ads/dev_key` file (the environment variable version won't work).
-By default Alfred uses the system Python, but you can change that by putting the path to your
-favorite Python executable in the file `~/.ads/python`.
-
-## Example queries
-
-This workflow is designed to search authors and years only. For example, if you want to search
-for papers by an author named "Spergel" in 2015, you can execute:
+To get started you can just open Alfred and type `ads ` to start searching. This workflow is
+designed to search authors and years only. For example, if you want to search for papers by an
+author named "Spergel" in 2015, you can execute:
 
 ```
 ads spergel 2015
