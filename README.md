@@ -59,3 +59,14 @@ And you can include first names, initials, etc. using quotes:
 ```
 ads "^mandel, k" "agol, e" 2000 2004
 ```
+
+## Issues
+
+If you run into any problems, please [report the issue on
+GitHub](https://github.com/dfm/adsabs.alfredworkflow/issues).
+
+## License
+
+Copyright 2019 Dan Foreman-Mackey.
+
+This is free software made available under the MIT License. For details see the LICENSE file.
