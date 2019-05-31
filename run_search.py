@@ -4,9 +4,11 @@
 import os
 import sys
 import json
+import time
 import calendar
 from datetime import datetime
 
+import cache
 from parse_query import parse_query_string
 
 
@@ -43,6 +45,11 @@ if __name__ == "__main__":
                      sub=("Or set you prefered python interpreter in the "
                           "~/.ads/python file"))
 
+    # Make sure that the ~/.ads directory exists
+    if not os.path.exists(os.path.expanduser("~/.ads")):
+        os.makedirs(os.path.expanduser("~/.ads"))
+
+    # Check for ADS API credentials
     key = os.environ.get("ADS_DEV_KEY", None)
     if not len(key.strip()):
         key = None
@@ -53,6 +60,16 @@ if __name__ == "__main__":
                       "~/.ads/dev_key or set as an Alfred variable"),
                      "https://github.com/andycasey/ads")
 
+    # Parse the query
+    query = " ".join(sys.argv[1:]).strip()
+    query_string = parse_query_string(query)
+
+    # Check the cache
+    cached = cache.get_value(query_string)
+    if cached is not None:
+        sys.stdout.write(cached)
+        sys.exit(0)
+
     # Fail if we're over the rate limit
     ratelimit = get_ratelimit()
     if ratelimit is not None:
@@ -62,9 +79,8 @@ if __name__ == "__main__":
             return_error("Your ADS rate limit has been reached",
                          "https://github.com/andycasey/ads")
 
-    # Parse the query
-    query = " ".join(sys.argv[1:]).strip()
-    query_string = parse_query_string(query)
+    # Wait for it...
+    time.sleep(0.8)
 
     # Perform the search
     request = ads.SearchQuery(
@@ -85,5 +101,11 @@ if __name__ == "__main__":
     ratelimit = request.response.get_ratelimits()
     set_ratelimit(ratelimit)
 
-    results = dict(items=papers)
-    sys.stdout.write(json.dumps(results))
+    results = json.dumps(dict(items=papers))
+    sys.stdout.write(results)
+
+    # Save the results to the cache
+    cache.set_value(query_string, results)
+
+    # Clean up old entries in the cache
+    cache.clean()
