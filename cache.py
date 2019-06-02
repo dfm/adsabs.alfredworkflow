@@ -29,7 +29,7 @@ def get_value(key):
     return pickle.loads(value)
 
 
-def set_value(key, value, timeout=1000):
+def set_value(key, value, timeout=86400):  # 24 hours
     with sqlite3.connect(CACHE_FILENAME) as conn:
         c = conn.cursor()
         c.execute("CREATE TABLE IF NOT EXISTS cache "

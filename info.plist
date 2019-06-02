@@ -85,7 +85,7 @@
 				<key>concurrently</key>
 				<false/>
 				<key>escaping</key>
-				<integer>68</integer>
+				<integer>76</integer>
 				<key>script</key>
 				<string>$ADS_PYTHON parse_query.py {query}</string>
 				<key>scriptargtype</key>
@@ -154,7 +154,7 @@
 				<key>argumenttype</key>
 				<integer>0</integer>
 				<key>escaping</key>
-				<integer>102</integer>
+				<integer>110</integer>
 				<key>keyword</key>
 				<string>ads</string>
 				<key>queuedelaycustom</key>

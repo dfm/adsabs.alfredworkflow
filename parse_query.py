@@ -7,6 +7,9 @@ import shlex
 
 
 def parse_query_string(query):
+    # Remove parentheses
+    query = query.replace("(", " ").replace(")", " ")
+
     # Tokenize the query
     tokens = shlex.split(query)
     years = []

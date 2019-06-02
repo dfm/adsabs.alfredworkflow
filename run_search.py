@@ -51,7 +51,7 @@ if __name__ == "__main__":
 
     # Check for ADS API credentials
     key = os.environ.get("ADS_DEV_KEY", None)
-    if not len(key.strip()):
+    if key is not None and len(key.strip()) == 0:
         key = None
         os.environ.pop("ADS_DEV_KEY")
     exists = os.path.exists(os.path.expanduser("~/.ads/dev_key"))
