@@ -62,7 +62,11 @@ if __name__ == "__main__":
 
     # Parse the query
     query = " ".join(sys.argv[1:]).strip()
-    query_string = parse_query_string(query)
+    try:
+        query_string = parse_query_string(query)
+    except Exception:
+        return_error("Invalid search string",
+                     "https://ui.adsabs.harvard.edu")
 
     # Check the cache
     cached = cache.get_value(query_string)
@@ -83,9 +87,12 @@ if __name__ == "__main__":
     time.sleep(0.8)
 
     # Perform the search
+    sort = "citation_count+desc"
+    if "year:" in query_string:
+        sort = "year+desc," + sort
     request = ads.SearchQuery(
         q=query_string,
-        sort="pubdate+desc",
+        sort=sort,
         fl=["title", "author", "year", "pubdate", "bibcode"],
         max_pages=1, rows=5)
 
