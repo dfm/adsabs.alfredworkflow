@@ -8,37 +8,24 @@
 	<string>Internet</string>
 	<key>connections</key>
 	<dict>
-		<key>54F6D1CC-61CC-4CD1-8853-8E956B8DB7C3</key>
-		<array>
-			<dict>
-				<key>destinationuid</key>
-				<string>407E7C1B-5537-436F-8D97-71204E3433D3</string>
-				<key>modifiers</key>
-				<integer>0</integer>
-				<key>modifiersubtext</key>
-				<string></string>
-				<key>vitoclose</key>
-				<false/>
-			</dict>
-		</array>
-		<key>6E4EEBD5-0AB8-4986-8EC0-1CD707F41689</key>
-		<array>
-			<dict>
-				<key>destinationuid</key>
-				<string>7C6CF5CF-C34A-410A-8466-A66B96327F49</string>
-				<key>modifiers</key>
-				<integer>0</integer>
-				<key>modifiersubtext</key>
-				<string></string>
-				<key>vitoclose</key>
-				<false/>
-			</dict>
-		</array>
-		<key>7C6CF5CF-C34A-410A-8466-A66B96327F49</key>
+		<key>88F638D8-273F-4E10-979E-6CFBCBC1AD83</key>
 		<array>
 			<dict>
 				<key>destinationuid</key>
 				<string>11D5721D-E45C-4D45-82C8-2CC370002271</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+		<key>DAFF399E-22B6-4655-BD72-BD3870F30A91</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>407E7C1B-5537-436F-8D97-71204E3433D3</string>
 				<key>modifiers</key>
 				<integer>0</integer>
 				<key>modifiersubtext</key>
@@ -61,46 +48,51 @@
 		<dict>
 			<key>config</key>
 			<dict>
+				<key>alfredfiltersresults</key>
+				<false/>
+				<key>alfredfiltersresultsmatchmode</key>
+				<integer>0</integer>
+				<key>argumenttreatemptyqueryasnil</key>
+				<false/>
+				<key>argumenttrimmode</key>
+				<integer>0</integer>
 				<key>argumenttype</key>
 				<integer>0</integer>
+				<key>escaping</key>
+				<integer>110</integer>
 				<key>keyword</key>
 				<string>ads</string>
-				<key>subtext</key>
-				<string></string>
-				<key>text</key>
-				<string>Execute search on ADS website</string>
-				<key>withspace</key>
+				<key>queuedelaycustom</key>
+				<integer>3</integer>
+				<key>queuedelayimmediatelyinitially</key>
 				<true/>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.input.keyword</string>
-			<key>uid</key>
-			<string>6E4EEBD5-0AB8-4986-8EC0-1CD707F41689</string>
-			<key>version</key>
-			<integer>1</integer>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
-				<key>concurrently</key>
-				<false/>
-				<key>escaping</key>
-				<integer>76</integer>
+				<key>queuedelaymode</key>
+				<integer>0</integer>
+				<key>queuemode</key>
+				<integer>1</integer>
+				<key>runningsubtext</key>
+				<string>Searching for papers...</string>
 				<key>script</key>
 				<string>$ADS_PYTHON parse_query.py {query}</string>
 				<key>scriptargtype</key>
 				<integer>0</integer>
 				<key>scriptfile</key>
 				<string></string>
+				<key>subtext</key>
+				<string></string>
+				<key>title</key>
+				<string>Execute search on ADS website</string>
 				<key>type</key>
 				<integer>0</integer>
+				<key>withspace</key>
+				<true/>
 			</dict>
 			<key>type</key>
-			<string>alfred.workflow.action.script</string>
+			<string>alfred.workflow.input.scriptfilter</string>
 			<key>uid</key>
-			<string>7C6CF5CF-C34A-410A-8466-A66B96327F49</string>
+			<string>88F638D8-273F-4E10-979E-6CFBCBC1AD83</string>
 			<key>version</key>
-			<integer>2</integer>
+			<integer>3</integer>
 		</dict>
 		<dict>
 			<key>config</key>
@@ -110,7 +102,7 @@
 				<key>spaces</key>
 				<string></string>
 				<key>url</key>
-				<string>https://ui.adsabs.harvard.edu/search/q={query}</string>
+				<string>{query}</string>
 				<key>utf8</key>
 				<true/>
 			</dict>
@@ -160,7 +152,7 @@
 				<key>queuedelaycustom</key>
 				<integer>3</integer>
 				<key>queuedelayimmediatelyinitially</key>
-				<false/>
+				<true/>
 				<key>queuedelaymode</key>
 				<integer>0</integer>
 				<key>queuemode</key>
@@ -185,7 +177,7 @@
 			<key>type</key>
 			<string>alfred.workflow.input.scriptfilter</string>
 			<key>uid</key>
-			<string>54F6D1CC-61CC-4CD1-8853-8E956B8DB7C3</string>
+			<string>DAFF399E-22B6-4655-BD72-BD3870F30A91</string>
 			<key>version</key>
 			<integer>3</integer>
 		</dict>
@@ -197,7 +189,7 @@
 		<key>11D5721D-E45C-4D45-82C8-2CC370002271</key>
 		<dict>
 			<key>xpos</key>
-			<integer>380</integer>
+			<integer>220</integer>
 			<key>ypos</key>
 			<integer>60</integer>
 		</dict>
@@ -208,26 +200,19 @@
 			<key>ypos</key>
 			<integer>180</integer>
 		</dict>
-		<key>54F6D1CC-61CC-4CD1-8853-8E956B8DB7C3</key>
+		<key>88F638D8-273F-4E10-979E-6CFBCBC1AD83</key>
 		<dict>
 			<key>xpos</key>
 			<integer>50</integer>
+			<key>ypos</key>
+			<integer>60</integer>
+		</dict>
+		<key>DAFF399E-22B6-4655-BD72-BD3870F30A91</key>
+		<dict>
+			<key>xpos</key>
+			<integer>45</integer>
 			<key>ypos</key>
 			<integer>180</integer>
-		</dict>
-		<key>6E4EEBD5-0AB8-4986-8EC0-1CD707F41689</key>
-		<dict>
-			<key>xpos</key>
-			<integer>50</integer>
-			<key>ypos</key>
-			<integer>60</integer>
-		</dict>
-		<key>7C6CF5CF-C34A-410A-8466-A66B96327F49</key>
-		<dict>
-			<key>xpos</key>
-			<integer>220</integer>
-			<key>ypos</key>
-			<integer>60</integer>
 		</dict>
 	</dict>
 	<key>variables</key>

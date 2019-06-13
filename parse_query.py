@@ -24,8 +24,7 @@ def parse_query_string(query):
 
     # Fail fast if there are no authors
     if len(authors) == 0:
-        sys.stdout.write(query)
-        sys.exit(0)
+        return query
 
     # Construct the query in ADS's format
     q = []
@@ -40,5 +39,12 @@ def parse_query_string(query):
 
 
 if __name__ == "__main__":
+    import json
     query = " ".join(sys.argv[1:])
-    sys.stdout.write(parse_query_string(query))
+    query = parse_query_string(query)
+    results = dict(items=[dict(
+        title="Execute search on ADS website",
+        subtitle=query,
+        arg="https://ui.adsabs.harvard.edu/search/q="+query,
+    )])
+    sys.stdout.write(json.dumps(results))

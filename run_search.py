@@ -67,6 +67,9 @@ if __name__ == "__main__":
     except Exception:
         return_error("Invalid search string",
                      "https://ui.adsabs.harvard.edu")
+    if query == query_string:
+        return_error("Invalid search string",
+                     "https://ui.adsabs.harvard.edu/search/q="+query)
 
     # Check the cache
     cached = cache.get_value(query_string)
