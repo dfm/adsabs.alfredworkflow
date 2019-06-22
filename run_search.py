@@ -43,7 +43,7 @@ if __name__ == "__main__":
         return_error("Install the 'ads' Python library to enable search",
                      "https://github.com/andycasey/ads",
                      sub=("Or set you prefered python interpreter in the "
-                          "~/.ads/python file"))
+                          "ADS_PYTHON variable for this workflow"))
 
     # Make sure that the ~/.ads directory exists
     if not os.path.exists(os.path.expanduser("~/.ads")):
@@ -62,6 +62,10 @@ if __name__ == "__main__":
 
     # Parse the query
     query = " ".join(sys.argv[1:]).strip()
+    if len(query) < 3:
+        sys.stdout.write(json.dumps(dict(items=[])))
+        sys.exit(0)
+
     try:
         query_string = parse_query_string(query)
     except Exception:
