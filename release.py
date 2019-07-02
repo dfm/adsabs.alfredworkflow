@@ -23,10 +23,11 @@ for obj in objects:
         continue
     config = obj["config"]
     config.pop("argumenttreatemptyqueryasnil", None)
+    config.pop("concurrently", None)
     obj["config"] = config
 
-    if "version" in obj and obj.get("version") > 2:
-        obj["version"] = 2
+    if "version" in obj and obj.get("version") > 1:
+        obj["version"] = obj["version"] - 1
 
 # Clear variables
 plist["variables"]["ADS_PYTHON"] = "python"
