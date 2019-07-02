@@ -5,7 +5,7 @@ import os
 import zipfile
 import plistlib
 
-VERSION = "0.1.2"
+VERSION = "0.1.3"
 OUTFILE = "adsabs.alfredworkflow"
 
 # Remove the previous build
