@@ -41,4 +41,7 @@ def parse_query_string(query):
 if __name__ == "__main__":
     query = " ".join(sys.argv[1:])
     query = parse_query_string(query)
-    sys.stdout.write("https://ui.adsabs.harvard.edu/search/q="+query)
+    if len(query):
+        sys.stdout.write("https://ui.adsabs.harvard.edu/search/q="+query)
+    else:
+        sys.stdout.write("https://ui.adsabs.harvard.edu")
